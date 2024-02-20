@@ -52,6 +52,7 @@ export default function Signup() {
           backgroundColor: "#fff",
           borderRadius: 5,
           transform: "translate(0px, 15%)",
+          ["@media (max-width:768px)"]: { transform: "translate(0px, 50px)" },
         }}
         noValidate
         autoComplete="off"

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { snackbarDetails } from "@/utils/constants";
+import { SnackbarDetails } from "@/utils/constants";
 
 const snackbarSlice = createSlice({
   name: "snackbar",
@@ -7,7 +7,7 @@ const snackbarSlice = createSlice({
     openSnackbar: false,
     serverError: false,
     errorMessage: "",
-  } as snackbarDetails,
+  } as SnackbarDetails,
   reducers: {
     openSnackbar(state, action) {
       state.openSnackbar = !state.openSnackbar;
