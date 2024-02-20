@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -36,6 +36,10 @@ export default function Login() {
     });
   };
 
+  const goToSignup = () => {
+    router.replace("/signup");
+  };
+
   const submitHandler = async (e: any): Promise<void> => {
     e.preventDefault();
     setLoading(true);
@@ -49,8 +53,15 @@ export default function Login() {
     try {
       const response = await loginUser(loginData);
       if (response.token) {
-        console.log("token:", response.token);
         snackbarHandler(false, "Successfully Logged in!");
+        router.push({
+          pathname: "/to-do-list",
+          query: {
+            data: JSON.stringify({
+              userName: response.username,
+            }),
+          } as any,
+        });
       } else {
         snackbarHandler(true, response.message ?? "Something went wrong");
       }
@@ -78,6 +89,7 @@ export default function Login() {
           backgroundColor: "#fff",
           borderRadius: 5,
           transform: "translate(0px, 80%)",
+          ["@media (max-width:768px)"]: { transform: "translate(0px, 50%)" },
         }}
         noValidate
         autoComplete="off"
@@ -115,6 +127,17 @@ export default function Login() {
           <Button variant="contained" size="large" type="submit">
             Login
           </Button>
+        </div>
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: 10,
+            color: "blue",
+            cursor: "pointer",
+          }}
+          onClick={goToSignup}
+        >
+          Creat new account
         </div>
       </Box>
     </>

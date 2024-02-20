@@ -1,9 +1,11 @@
-import Signup from "@/components/authForm/signup";
+import Login from "@/components/authForm/login";
+import SnackBar from "@/components/snackbar";
 
 export default function Auth() {
   return (
     <>
-      <Signup />
+      <SnackBar />
+      <Login />
     </>
   );
 }

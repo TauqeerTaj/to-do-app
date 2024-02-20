@@ -1,0 +1,19 @@
+.header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.logout {
+  cursor: pointer;
+}
+.content {
+  padding: 0px 10px 0px 0px;
+}
+.name {
+  padding: 0px 0px 0px 10px;
+}
